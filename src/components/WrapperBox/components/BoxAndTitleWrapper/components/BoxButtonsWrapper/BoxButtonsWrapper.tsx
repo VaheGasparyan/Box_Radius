@@ -4,10 +4,10 @@ import styles from './BoxButtonsWrapper.module.scss';
 
 const BoxButtonsWrapper = () => {
     const [boxRadius, setBoxRadius] = useState({
-        borderTopRightRadius: '32',
-        borderTopLeftRadius: '15',
-        borderBottomRightRadius: '25',
-        borderBottomLeftRadius: '46'
+        borderTopRightRadius: '32%',
+        borderTopLeftRadius: '15%',
+        borderBottomRightRadius: '25%',
+        borderBottomLeftRadius: '46%'
     });
 
     const changeBoxRadius = (event: ChangeEvent<HTMLInputElement>) => {
