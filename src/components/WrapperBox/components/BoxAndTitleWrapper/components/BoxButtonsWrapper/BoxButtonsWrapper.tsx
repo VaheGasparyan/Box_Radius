@@ -4,10 +4,10 @@ import styles from './BoxButtonsWrapper.module.scss';
 
 const BoxButtonsWrapper = () => {
     const [boxRadius, setBoxRadius] = useState({
-        topLeft: 32,
-        topRight: 15,
-        bottomLeft: 25,
-        bottomRight: 46
+        borderTopRightRadius: '32',
+        borderTopLeftRadius: '15',
+        borderBottomRightRadius: '25',
+        borderBottomLeftRadius: '46'
     });
 
     const changeBoxRadius = (event: ChangeEvent<HTMLInputElement>) => {
@@ -15,26 +15,26 @@ const BoxButtonsWrapper = () => {
         setBoxRadius(prevState => {
             return {
                 ...prevState,
-                [event.target.dataset.name as string]: event.target.value
+                [event.target.dataset.name as string]: event.target.value + '%'
             }
         })
     }
 
     return (
         <div className={styles.box_button_wrapper} >
-            <div className={styles.change_box} style={{borderTopRightRadius: `${boxRadius.topRight}%`, borderTopLeftRadius: `${boxRadius.topLeft}%`, borderBottomRightRadius: `${boxRadius.bottomRight}%`, borderBottomLeftRadius: `${boxRadius.bottomLeft}%`}}></div>
+            <div className={styles.change_box} style={{...boxRadius}} ></div>
             <div className={styles.buttons_wrapper}>
                 <div>
                     <span>Top Left Radius</span>
-                    <input onChange={changeBoxRadius} value={boxRadius.topLeft} data-name='topLeft' type="range" />
+                    <input onChange={changeBoxRadius} value={parseInt(boxRadius.borderTopLeftRadius)} data-name='borderTopLeftRadius' type="range" />
                     <span>Top Right Radius</span>
-                    <input onChange={changeBoxRadius} value={boxRadius.topRight} data-name='topRight' type="range" />
+                    <input onChange={changeBoxRadius} value={parseInt(boxRadius.borderTopRightRadius)} data-name='borderTopRightRadius' type="range" />
                 </div>
                 <div>
                     <span>Bottom Left Radius</span>
-                    <input onChange={changeBoxRadius} value={boxRadius.bottomLeft} data-name='bottomLeft' type="range" />
+                    <input onChange={changeBoxRadius} value={parseInt(boxRadius.borderBottomLeftRadius)} data-name='borderBottomLeftRadius' type="range" />
                     <span>Bottom Right Radius</span>
-                    <input onChange={changeBoxRadius} value={boxRadius.bottomRight} data-name='bottomRight' type="range" />
+                    <input onChange={changeBoxRadius} value={parseInt(boxRadius.borderBottomRightRadius)} data-name='borderBottomRightRadius' type="range" />
                 </div>
             </div>
         </div>
